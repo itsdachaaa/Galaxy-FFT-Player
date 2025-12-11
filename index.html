@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galaxy Player</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- p5.js + p5.sound -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="player-card">
+      <h1 class="app-title">GALAXY MUSIC PLAYER</h1>
+      <p class="app-subtitle">FFT visualiser with song controls</p>
+
+      <div id="visualizer-container" class="visualizer-wrap"></div>
+
+      <div class="controls">
+        <div class="controls-top">
+          <!-- Left Side: song + transport + seek -->
+          <div class="controls-main">
+            <!-- Song select -->
+            <div class="controls-row controls-row-song">
+              <div class="field-grow">
+                <label for="trackSelect">Song</label>
+                <select id="trackSelect">
+                  <!-- Options for songs -->
+                  <option value="assets/hype.mp3">Soundtrack #1 (Default)</option>
+                  <option value="assets/flow.mp3">Soundtrack #2</option>
+                  <option value="assets/amalgam.mp3">Soundtrack #3</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Transport buttons + time label -->
+            <div class="controls-row controls-row-transport">
+              <div class="transport-buttons">
+                <button id="backBtn" class="btn-icon" title="Back 5 seconds">⏮</button>
+                <button id="playPause" class="btn-primary btn-round">▶</button>
+                <button id="forwardBtn" class="btn-icon" title="Forward 5 seconds">⏭</button>
+              </div>
+              <div class="time-label" id="timeLabel">0:00 / 0:00</div>
+            </div>
+
+            <!-- Seek bar under the buttons -->
+            <div class="controls-row controls-row-seek">
+              <input type="range" id="seekBar" min="0" max="1" step="0.001" value="0" />
+            </div>
+          </div>
+
+          <!-- Right Side: vertical volume -->
+          <div class="volume-column">
+            <span class="volume-emoji" aria-hidden="true">🔊</span>
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.7"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
